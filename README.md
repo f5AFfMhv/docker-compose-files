@@ -10,19 +10,19 @@ docker compose -f <FILE NAME> up -d
 # Service list
 <details>
   <summary>Flame - RPI</summary>
-  [Flame](https://hub.docker.com/r/pawelmalak/flame) is self-hosted startpage for your server.
+  <a href=https://hub.docker.com/r/pawelmalak/flame>Flame</a> is self-hosted startpage for your server.
 </details>
 <details>
   <summary>Gitea - RPI</summary>
-  [Gitea](https://about.gitea.com/) is a lightweight DevOps platform.
+  <a href=https://about.gitea.com/>Gitea</a> is a lightweight DevOps platform.
 </details>
 <details>
   <summary>Librespeed - RPI</summary>
-  [Librespeed](https://librespeed.org/) is free and Open Source Speedtest.
+  <a href=https://librespeed.org/>Librespeed</a> is free and Open Source Speedtest.
 </details>
 <details>
   <summary>Nextcloud - RPI</summary>
-  [Nextcloud](https://nextcloud.com/) is self-hosted collaboration solution.
+  <a href=https://nextcloud.com/>Nextcloud</a> is self-hosted collaboration solution.
 </details>
 <details>
   <summary>NordVPN proxy - RPI</summary>
@@ -30,39 +30,38 @@ docker compose -f <FILE NAME> up -d
 </details>
 <details>
   <summary>NPM - RPI</summary>
-  Docker container for managing [Nginx proxy](https://nginxproxymanager.com/) hosts with a simple, powerful interface.
+  Docker container for managing <a href=https://nginxproxymanager.com/>NPM</a> hosts with a simple, powerful interface.
 </details>
 <details>
   <summary>Pihole - RPI</summary>
-  [Pi-hole®](https://pi-hole.net/) is a DNS sinkhole that protects your devices from unwanted content, without installing any client-side software.
+  <a href=https://pi-hole.net/>Pihole</a> is a DNS sinkhole that protects your devices from unwanted content, without installing any client-side software.
 </details>
 <details>
   <summary>Plex - RPI</summary>
-  [Plex](https://www.plex.tv/) combines free movies & TV with your favorite streaming services.
+  <a href=https://www.plex.tv/>Plex</a> combines free movies & TV with your favorite streaming services.
 </details>
 <details>
   <summary>Portainer - RPI</summary>
-  [Portainer](https://www.portainer.io/) is powerful container management.
+  <a href=https://www.portainer.io/>Portainer</a> is powerful container management.
 </details>
 <details>
   <summary>RPI monitor - RPI</summary>
   Grafana dashboard for raspberry pi.
-  Based on [this](https://github.com/novaspirit/Docker-Raspberry-PI-Monitoring) project.
-  Expanded with [this](https://github.com/f5AFfMhv/emonesp-grafana).
+  Based on <a href=https://github.com/novaspirit/Docker-Raspberry-PI-Monitoring>this</a> project and expanded with <a href=https://github.com/f5AFfMhv/emonesp-grafana>this</a>.
 </details>
 <details>
   <summary>Seafile - RPI</summary>
-  [Seafile](https://www.seafile.com/en/home/) is an open source file sync&share solution.
+  <a href=https://www.seafile.com/en/home/>Seafile</a> is an open source file sync&share solution.
 </details>
 <details>
   <summary>Syncthing - RPI</summary>
-  [Syncthing](https://syncthing.net/) is a continuous file synchronization program.
+  <a href=https://syncthing.net/>Syncthing</a> is a continuous file synchronization program.
 </details>
 <details>
   <summary>Traefik - RPI</summary>
-  [Traefik](https://traefik.io/) is cloud-native application proxy.
+  <a href=https://traefik.io/>Traefik</a> is cloud-native application proxy.
 </details>
 <details>
   <summary>Vikunja - RPI</summary>
-  [Vikunja](https://vikunja.io/) is the open-source, self-hostable to-do app.
+  <a href=https://vikunja.io/>Vikunja</a> is the open-source, self-hostable to-do app.
 </details>
