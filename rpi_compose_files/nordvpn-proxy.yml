@@ -1,0 +1,28 @@
+# Alpine with OpenVPN and Privoxy to use your NordVPN account.
+version: '3'
+
+services:
+  nordvpn-proxy:
+    image: jeroenslot/nordvpn-proxy:latest
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - "/mnt/data/nordvpn-proxy:/app/ovpn/config"
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - TZ=Europe/Vilnius
+      - USERNAME=${vpn_login}
+      - PASSWORD=${vpn_pass}
+      - LOCAL_NETWORK=192.168.1.0/24
+      - COUNTRY=${country}
+      - PROTOCOL=udp
+    ports:
+      - 8118:8118
+    restart: unless-stopped

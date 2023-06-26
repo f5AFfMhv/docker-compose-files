@@ -1,0 +1,51 @@
+# The open-source, self-hostable to-do app.
+version: '3'
+
+services:
+  mariadb:
+    image: mariadb:10
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      USER_UID: 1000
+      USER_GID: 1000
+      TZ: Europe/Vilnius
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASS}
+      MYSQL_USER: vikunja
+      MYSQL_PASSWORD: ${MYSQL_PASS}
+      MYSQL_DATABASE: vikunja
+    volumes:
+      - /mnt/data/vikunja/db:/var/lib/mysql
+    restart: unless-stopped
+
+  vikunja-api:
+    image: vikunja/api
+    environment:
+      USER_UID: 1000
+      USER_GID: 1000
+      TZ: Europe/Vilnius
+      VIKUNJA_DATABASE_HOST: mariadb
+      VIKUNJA_DATABASE_PASSWORD: ${MYSQL_PASS}
+      VIKUNJA_DATABASE_TYPE: mysql
+      VIKUNJA_DATABASE_USER: vikunja
+      VIKUNJA_DATABASE_DATABASE: vikunja
+      VIKUNJA_SERVICE_JWTSECRET: vikunja
+      VIKUNJA_SERVICE_FRONTENDURL: http://vikunja-frontend/
+      VIKUNJA_SERVICE_ENABLEREGISTRATION: false
+    ports:
+      - 3456:3456
+    volumes:
+      - /mnt/data/vikunja/files:/app/vikunja/files
+    depends_on:
+      - mariadb
+    restart: unless-stopped
+
+  vikunja-frontend:
+    image: vikunja/frontend
+    ports:
+      - 6677:80
+    environment:
+      USER_UID: 1000
+      USER_GID: 1000
+      TZ: Europe/Vilnius
+      VIKUNJA_API_URL: http://vikunja-api:3456/api/v1
+    restart: unless-stopped

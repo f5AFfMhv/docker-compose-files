@@ -1,0 +1,19 @@
+# Powerful container management.
+version: "3"
+
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - TZ=Europe/Vilnius
+    volumes:
+      - "/mnt/data/portainer:/data"
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    ports:
+      - "9443:9443"
+      - "8000:8000"
+    restart: unless-stopped

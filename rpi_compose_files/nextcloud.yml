@@ -1,0 +1,36 @@
+# self-hosted collaboration solution
+version: '3'
+
+networks:
+  nextcloud:
+
+services:
+  postgres:
+    image: postgres:10.12-alpine
+    volumes:
+      - /mnt/data/postgres:/var/lib/postgresql/data
+    networks:
+      - nextcloud
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${POSTGRES_PASS}
+      - TZ=Europe/Vilnius
+    restart: unless-stopped
+
+  nextcloud:
+    image: nextcloud:latest
+    networks:
+      - nextcloud
+    ports:
+      - 8888:80
+    volumes:
+      - /mnt/data/nextcloud:/var/www/html
+    environment:
+      - POSTGRES_DB=nextcloud
+      - POSTGRES_HOST=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${POSTGRES_PASS}
+      - TZ=Europe/Vilnius
+    depends_on:
+      - postgres
+    restart: unless-stopped
