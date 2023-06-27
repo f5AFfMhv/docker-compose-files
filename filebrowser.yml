@@ -1,0 +1,16 @@
+# File Browser is a create-your-own-cloud-kind of server.
+version: "3"
+
+services:
+  filebrowser:
+    image: hurlenko/filebrowser:latest
+    environment:
+      TZ: Europe/Vilnius
+    user: "1000:1000"
+    ports:
+      - 9004:8080
+    volumes:
+      - ${base_dir}/filebrowser/data:/data
+      - ${base_dir}/filebrowser/config:/config
+    restart: unless-stopped
+

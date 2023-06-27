@@ -9,6 +9,22 @@ docker compose -f <FILE NAME> up -d
 
 # Service list
 <details>
+  <summary>File Browser</summary>
+  <a href=https://filebrowser.org/features>File Browser</a> is a create-your-own-cloud-kind of server.
+</details>
+<details>
+  <summary>YoutubeDL-Material</summary>
+  <a href=https://github.com/Tzahi12345/YoutubeDL-Material>YoutubeDL-Material</a> is a Material Design frontend for youtube-dl.
+</details>
+<details>
+  <summary>Dashy</summary>
+  <a href=https://dashy.to/>Dashy</a> is the ultimate homepage for your homelab.
+</details>
+<details>
+  <summary>Ansible Semaphore</summary>
+  <a href=https://github.com/ansible-semaphore/semaphore>Ansible Semaphore</a> is a modern UI for Ansible.
+</details>
+<details>
   <summary>Flame - RPI</summary>
   <a href=https://hub.docker.com/r/pawelmalak/flame>Flame</a> is self-hosted startpage for your server.
 </details>
