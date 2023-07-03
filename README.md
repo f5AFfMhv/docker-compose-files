@@ -9,6 +9,10 @@ docker compose -f <FILE NAME> up -d
 
 # Service list
 <details>
+  <summary>Portainer agent</summary>
+  <a href=https://www.portainer.io/>Portainer agent</a> is used for managing containers from Portainer server.
+</details>
+<details>
   <summary>File Browser</summary>
   <a href=https://filebrowser.org/features>File Browser</a> is a create-your-own-cloud-kind of server.
 </details>
@@ -58,7 +62,7 @@ docker compose -f <FILE NAME> up -d
 </details>
 <details>
   <summary>Portainer - RPI</summary>
-  <a href=https://www.portainer.io/>Portainer</a> is powerful container management.
+  <a href=https://www.portainer.io/>Portainer</a> is powerful container management tool.
 </details>
 <details>
   <summary>RPI monitor - RPI</summary>
