@@ -5,14 +5,17 @@ services:
   gitea:
     image: gitea/gitea:latest
     environment:
-      - USER_UID=1000
-      - USER_GID=1000
       - TZ=Europe/Vilnius
     volumes:
-      - "/mnt/data/gitea:/data:Z"
+      - "${base_dir}/gitea:/data:Z"
       - "/etc/timezone:/etc/timezone:ro"
       - "/etc/localtime:/etc/localtime:ro"
     ports:
-      - "3000:3000"
-      - "2222:22"
+      # - 3000:3000
+      - 2222:22
     restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: docker_default

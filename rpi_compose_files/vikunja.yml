@@ -14,7 +14,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASS}
       MYSQL_DATABASE: vikunja
     volumes:
-      - /mnt/data/vikunja/db:/var/lib/mysql
+      - ${base_dir}/vikunja/db:/var/lib/mysql
     restart: unless-stopped
 
   vikunja-api:
@@ -34,7 +34,7 @@ services:
     ports:
       - 3456:3456
     volumes:
-      - /mnt/data/vikunja/files:/app/vikunja/files
+      - ${base_dir}/vikunja/files:/app/vikunja/files
     depends_on:
       - mariadb
     restart: unless-stopped

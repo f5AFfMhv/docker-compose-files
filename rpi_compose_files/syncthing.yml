@@ -5,7 +5,7 @@ services:
   syncthing:
     image: syncthing/syncthing:latest
     volumes:
-      - "/mnt/data/syncthing:/var/syncthing"
+      - "${base_dir}/syncthing:/var/syncthing"
     ports:
       - 8384:8384 # Web UI
       - 22000:22000/tcp # TCP file transfers

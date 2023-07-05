@@ -42,8 +42,8 @@ services:
       - 8200:3000
     restart: unless-stopped
     volumes:
-      - /mnt/data/rpi-monitoring/grafana/data:/var/lib/grafana
-      - /mnt/data/rpi-monitoring/grafana/provisioning:/etc/grafana/provisioning
+      - ${base_dir}/rpi-monitoring/grafana/data:/var/lib/grafana
+      - ${base_dir}/rpi-monitoring/grafana/provisioning:/etc/grafana/provisioning
 
   node-exporter:
     image: prom/node-exporter:latest
@@ -66,8 +66,8 @@ services:
     ports:
       - 8203:9090
     volumes:
-      - /mnt/data/rpi-monitoring/prometheus/data:/prometheus
-      - /mnt/data/rpi-monitoring/prometheus/config:/etc/prometheus/
+      - ${base_dir}/rpi-monitoring/prometheus/data:/prometheus
+      - ${base_dir}/rpi-monitoring/prometheus/config:/etc/prometheus/
     environment:
       - TZ=Europe/Vilnius
     links:
@@ -78,7 +78,7 @@ services:
     user: "${UID}:${GID}"
     image: eclipse-mosquitto:latest
     volumes:
-      - /mnt/data/rpi-monitoring/mosquitto:/mosquitto
+      - ${base_dir}/rpi-monitoring/mosquitto:/mosquitto
     environment:
       - TZ=Europe/Vilnius
     ports:
@@ -96,7 +96,7 @@ services:
       - rpimonitor_default
     restart: unless-stopped
     volumes:
-      - /mnt/data/rpi-monitoring/mqtt2prometheus/prometheus2mqtt_config.yaml:/config.yaml
+      - ${base_dir}/rpi-monitoring/mqtt2prometheus/prometheus2mqtt_config.yaml:/config.yaml
 
 networks:
   rpimonitor_default:

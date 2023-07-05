@@ -5,14 +5,12 @@ services:
   speedtest:
     image: linuxserver/librespeed:latest
     ports:
-      - 8100:80
+    #   - 8100:80
     environment:
-      - USER_UID=1000
-      - USER_GID=1000
       - TZ=Europe/Vilnius
     restart: unless-stopped
 
-# networks:
-#   default:
-#     external:
-#       name: docker_default
+networks:
+  default:
+    external:
+      name: docker_default

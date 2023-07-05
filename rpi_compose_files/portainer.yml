@@ -9,7 +9,7 @@ services:
       - USER_GID=1000
       - TZ=Europe/Vilnius
     volumes:
-      - "/mnt/data/portainer:/data"
+      - "${base_dir}/portainer:/data"
       - "/etc/timezone:/etc/timezone:ro"
       - "/etc/localtime:/etc/localtime:ro"
       - "/var/run/docker.sock:/var/run/docker.sock"

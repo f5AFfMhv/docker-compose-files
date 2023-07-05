@@ -7,19 +7,17 @@ services:
     container_name: flame
     image: pawelmalak/flame:multiarch
     volumes:
-      - "/mnt/data/flame:/app/data"
+      - "${base_dir}/flame:/app/data"
       # optional but required for Docker integration
       # - /var/run/docker.sock:/var/run/docker.sock
     ports:
-      - 80:5005
+    #   - 80:5005
     environment:
-      - USER_UID=1000
-      - USER_GID=1000
       - TZ=Europe/Vilnius
       - PASSWORD=${FLAME_PASS}
     restart: unless-stopped
 
-# networks:
-#   default:
-#     external:
-#       name: docker_default
+networks:
+  default:
+    external:
+      name: docker_default

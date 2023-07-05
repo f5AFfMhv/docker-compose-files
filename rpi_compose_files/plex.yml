@@ -11,11 +11,11 @@ services:
       - VERSION=docker
       - TZ=Europe/Vilnius
     volumes:
-      - /mnt/data/plex:/config
-      - /mnt/data/app/data/mint/files/Videos/Series:/tv
-      - /mnt/data/app/data/mint/files/Videos/Movies:/movies
-      - /mnt/data/app/data/mint/files/Videos/Phone:/phone
-      - /mnt/data/app/data/mint/files/Videos/Other:/other
-      - /mnt/data/app/data/mint/files/Pictures:/pictures
-      - /mnt/data/app/data/mint/files/Music:/music
+      - ${base_dir}/plex:/config
+      - ${base_dir}/app/data/mint/files/Videos/Series:/tv
+      - ${base_dir}/app/data/mint/files/Videos/Movies:/movies
+      - ${base_dir}/app/data/mint/files/Videos/Phone:/phone
+      - ${base_dir}/app/data/mint/files/Videos/Other:/other
+      - ${base_dir}/app/data/mint/files/Pictures:/pictures
+      - ${base_dir}/app/data/mint/files/Music:/music
     restart: unless-stopped

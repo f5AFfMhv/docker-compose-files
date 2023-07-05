@@ -13,7 +13,7 @@ services:
       - 8.8.8.8
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - "/mnt/data/nordvpn-proxy:/app/ovpn/config"
+      - "${base_dir}/nordvpn-proxy:/app/ovpn/config"
     environment:
       - USER_UID=1000
       - USER_GID=1000

@@ -14,8 +14,8 @@ services:
       - TZ=Europe/Vilnius
       # WEBPASSWORD: 'set a secure password here or it will be random'
     volumes:
-      - '/mnt/data/pihole/config/:/etc/pihole/'
-      - '/mnt/data/pihole/dnsmasq.d/:/etc/dnsmasq.d/'
+      - '${base_dir}/pihole/config/:/etc/pihole/'
+      - '${base_dir}/pihole/dnsmasq.d/:/etc/dnsmasq.d/'
     # Recommended but not required (DHCP needs NET_ADMIN)
     # cap_add:
     #  - NET_ADMIN
