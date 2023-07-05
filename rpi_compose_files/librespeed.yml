@@ -3,11 +3,10 @@ version: "3"
 
 services:
   speedtest:
+    container_name: librespeed
     image: linuxserver/librespeed:latest
     # ports:
-    #   - 8100:80
-    environment:
-      - TZ=Europe/Vilnius
+    #   - "8100:80"
     restart: unless-stopped
 
 networks:
