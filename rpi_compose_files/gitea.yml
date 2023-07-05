@@ -1,5 +1,5 @@
 # Gitea is a lightweight DevOps platform.
-version: "2"
+version: "3"
 
 services:
   gitea:
