@@ -9,6 +9,10 @@ docker compose -f <FILE NAME> up -d
 
 # Service list
 <details>
+  <summary>Caddy</summary>
+  <a href=https://caddyserver.com/>Caddy</a> is open source web server with automatic HTTPS written in Go.
+</details>
+<details>
   <summary>Portainer agent</summary>
   <a href=https://www.portainer.io/>Portainer agent</a> is used for managing containers from Portainer server.
 </details>

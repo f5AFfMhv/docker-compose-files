@@ -1,0 +1,21 @@
+# Open source web server with automatic HTTPS written in Go.
+version: '3'
+
+services:
+  caddy:
+    container_name: caddy
+    image: caddy:latest
+    volumes:
+      - "${base_dir}/caddy/Caddyfile:/etc/caddy/Caddyfile"
+    environment:
+      - TZ=Europe/Vilnius
+    ports:
+      - "80:80"
+      - "443:443"
+    command: ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network
