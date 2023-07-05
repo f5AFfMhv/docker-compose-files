@@ -5,6 +5,8 @@ services:
   gitea:
     container_name: gitea
     image: gitea/gitea:latest
+    environment:
+      - TZ=Europe/Vilnius
     volumes:
       - "${base_dir}/gitea:/data:Z"
       - "/etc/timezone:/etc/timezone:ro"

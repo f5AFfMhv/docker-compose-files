@@ -7,6 +7,8 @@ services:
     image: linuxserver/librespeed:latest
     # ports:
     #   - "8100:80"
+    environment:
+      - TZ=Europe/Vilnius
     restart: unless-stopped
 
 networks:
