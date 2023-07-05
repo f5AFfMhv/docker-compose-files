@@ -10,7 +10,7 @@ services:
       - "${base_dir}/flame:/app/data"
       # optional but required for Docker integration
       # - /var/run/docker.sock:/var/run/docker.sock
-    ports:
+    # ports:
     #   - 80:5005
     environment:
       - TZ=Europe/Vilnius

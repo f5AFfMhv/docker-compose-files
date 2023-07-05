@@ -4,7 +4,7 @@ version: "3"
 services:
   speedtest:
     image: linuxserver/librespeed:latest
-    ports:
+    # ports:
     #   - 8100:80
     environment:
       - TZ=Europe/Vilnius
