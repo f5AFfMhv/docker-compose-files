@@ -6,7 +6,9 @@ services:
     container_name: caddy
     image: caddy:latest
     volumes:
-      - "${base_dir}/Caddyfile:/etc/caddy/Caddyfile"
+      - "${base_dir}/caddy/Caddyfile:/etc/caddy/Caddyfile"
+      - "${base_dir}/caddy/server.key:/server.key"
+      - "${base_dir}/caddy/server.crt:/server.crt"
     environment:
       - TZ=Europe/Vilnius
     ports:
