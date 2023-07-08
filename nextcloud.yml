@@ -16,7 +16,7 @@ services:
       - MYSQL_HOST=mariadb
       - NEXTCLOUD_ADMIN_USER=${nextcloud_user}
       - NEXTCLOUD_ADMIN_PASSWORD=${nextcloud_pass}
-      - NEXTCLOUD_TRUSTED_DOMAINS${nextcloud_domains}
+      - NEXTCLOUD_TRUSTED_DOMAINS=${nextcloud_domains}
       - NEXTCLOUD_UPDATE=1
       - TZ=Europe/Vilnius
     restart: unless-stopped
