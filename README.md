@@ -9,6 +9,10 @@ docker compose -f <FILE NAME> up -d
 
 # Service list
 <details>
+<summary>MariaDB</summary>
+  <a href=https://mariadb.org/>MariaDB Server</a> is one of the most popular open source relational databases.
+</details>
+<details>
   <summary>Caddy</summary>
   <a href=https://caddyserver.com/>Caddy</a> is open source web server with automatic HTTPS written in Go.
 </details>

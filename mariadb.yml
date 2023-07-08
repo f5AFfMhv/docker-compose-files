@@ -1,0 +1,19 @@
+# MariaDB Server is one of the most popular open source relational databases.
+version: "3"
+
+services:
+  mariadb:
+    container_name: mariadb
+    image: mariadb:10.5
+    volumes:
+      - "${base_dir}/mariadb:/var/lib/mysql"
+    environment:
+      - MYSQL_ROOT_PASSWORD=${mysql_root_pass}
+      - MYSQL_LOG_CONSOLE=true
+      - TZ=Europe/Vilnius
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network
