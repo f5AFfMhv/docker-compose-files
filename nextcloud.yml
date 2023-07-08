@@ -17,7 +17,7 @@ services:
       - NEXTCLOUD_ADMIN_USER=${nextcloud_user}
       - NEXTCLOUD_ADMIN_PASSWORD=${nextcloud_pass}
       - NEXTCLOUD_TRUSTED_DOMAINS=${nextcloud_domains}
-      - OVERWRITEHOST=${nextcloud_url}
+      - OVERWRITEHOST=https://${nextcloud_url}
       - OVERWRITEPROTOCOL=https
       - OVERWRITECLIURL=https://${nextcloud_url}
       - NEXTCLOUD_UPDATE=1
