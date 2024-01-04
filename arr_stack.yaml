@@ -15,8 +15,8 @@ services:
       - TZ=${time_zone}
     volumes:
       - ${config_dir}/prowlarr:/config
-    ports:
-      - 9696:9696
+    # ports:
+    #   - 9696:9696
     restart: unless-stopped
 
 # Sonarr is a PVR for Usenet and BitTorrent users.
@@ -32,8 +32,8 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ${config_dir}/sonarr:/config
       - ${data_dir}:/data
-    ports:
-      - 8989:8989
+    # ports:
+    #   - 8989:8989
     restart: unless-stopped
 
 # Radarr is a movie collection manager for Usenet and BitTorrent users.
@@ -49,8 +49,8 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ${config_dir}/radarr:/config
       - ${data_dir}:/data
-    ports:
-      - 7878:7878
+    # ports:
+    #   - 7878:7878
     restart: unless-stopped
 
 # Jellyseerr is a free and open source software application for managing requests for your media library.
@@ -65,6 +65,11 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${config_dir}/jellyseerr:/app/config
-    ports:
-      - 5055:5055
+    # ports:
+    #   - 5055:5055
     restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network

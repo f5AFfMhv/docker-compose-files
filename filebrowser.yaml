@@ -14,6 +14,11 @@ services:
     volumes:
       - ${data_dir}:/data
       - ${config_dir}/filebrowser:/config
-    ports:
-      - 9003:8080
+    # ports:
+    #   - 9003:8080
     restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network

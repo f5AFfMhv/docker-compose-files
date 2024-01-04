@@ -11,6 +11,11 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${time_zone}
-    ports:
-      - 9009:3000
+    # ports:
+    #   - 9009:3000
     restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network

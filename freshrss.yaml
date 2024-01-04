@@ -13,6 +13,11 @@ services:
       - TZ=${time_zone}
     volumes:
       - ${config_dir}/freshrss:/config
-    ports:
-      - 9012:80
+    # ports:
+    #   - 9012:80
     restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network

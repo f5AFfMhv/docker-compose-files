@@ -16,6 +16,11 @@ services:
       - ${config_dir}/homarr/config:/app/data/configs
       - ${config_dir}/homarr/icons:/app/public/icons
       - ${config_dir}/homarr/data:/data
-    ports:
-      - 9013:7575
+    # ports:
+    #   - 9013:7575
     restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network

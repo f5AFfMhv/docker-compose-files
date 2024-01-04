@@ -13,6 +13,11 @@ services:
       - TZ=${time_zone}
     volumes:
       - ${config_dir}/librespeed:/config
-    ports:
-      - 9008:80
+    # ports:
+    #   - 9008:80
     restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network

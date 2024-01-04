@@ -15,6 +15,11 @@ services:
       - ${data_dir}/tvshows:/data/tvshows
       - ${data_dir}/movies:/data/movies
       - ${config_dir}/jellyfin:/config
-    ports:
-      - 8096:8096
+    # ports:
+    #   - 8096:8096
     restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network

@@ -13,6 +13,11 @@ services:
       - TZ=${time_zone}
     volumes:
       - ${config_dir}/uptime-kuma:/app/data
-    ports:
-      - 9010:3001
+    # ports:
+    #   - 9010:3001
     restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network

@@ -14,8 +14,8 @@ services:
     volumes:
       - ${config_dir}/tubesync:/config
       - ${data_dir}/podcasts:/downloads
-    ports:
-      - 9006:4848
+    # ports:
+    #   - 9006:4848
     restart: unless-stopped
 
 # Web GUI for youtube-dl (using the yt-dlp fork) with playlist support.
@@ -29,6 +29,11 @@ services:
       - TZ=${time_zone}
     volumes:
       - ${data_dir}/podcasts:/downloads
-    ports:
-      - 9007:8081
+    # ports:
+    #   - 9007:8081
     restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network

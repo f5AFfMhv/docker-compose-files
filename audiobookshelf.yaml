@@ -16,6 +16,11 @@ services:
       - ${data_dir}/podcasts:/podcasts
       - ${config_dir}/audiobookshelf/config:/config
       - ${config_dir}/audiobookshelf/metadata:/metadata
-    ports:
-      - 9002:80
+    # ports:
+    #   - 9002:80
     restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network

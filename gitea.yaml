@@ -15,7 +15,12 @@ services:
       - ${config_dir}/gitea:/data:Z
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
-    ports:
-      # - 2222:22
-      - 9011:3000
+    # ports:
+    #   - 2222:22
+    #   - 9011:3000
     restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network
