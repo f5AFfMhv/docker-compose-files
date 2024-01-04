@@ -1,0 +1,19 @@
+# This program runs a speedtest check every hour and graphs the results.
+# https://github.com/henrywhitaker3/Speedtest-Tracker
+---
+version: "3"
+
+services:
+  speedtest-tracker:
+    image: henrywhitaker3/speedtest-tracker:latest
+    container_name: speedtest-tracker
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${time_zone}
+      - OOKLA_EULA_GDPR=true
+    volumes:
+      - ${config_dir}/speedtest-tracker:/config
+    ports:
+      - 9005:80
+    restart: unless-stopped

@@ -1,0 +1,20 @@
+# Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media.
+# https://github.com/jellyfin/jellyfin
+---
+version: "2.1"
+
+services:
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${time_zone}
+    volumes:
+      - ${data_dir}/tvshows:/data/tvshows
+      - ${data_dir}/movies:/data/movies
+      - ${config_dir}/jellyfin:/config
+    ports:
+      - 8096:8096
+    restart: unless-stopped

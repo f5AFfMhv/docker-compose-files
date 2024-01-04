@@ -1,0 +1,21 @@
+# Gitea is a lightweight DevOps platform.
+# https://github.com/go-gitea/gitea
+---
+version: "3"
+
+services:
+  gitea:
+    image: gitea/gitea:latest
+    container_name: gitea
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${time_zone}
+    volumes:
+      - ${config_dir}/gitea:/data:Z
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      # - 2222:22
+      - 9011:3000
+    restart: unless-stopped

@@ -1,0 +1,41 @@
+---
+version: "3"
+
+services:
+# NordLynx is a technology built around the WireGuard® VPN protocol.
+# https://github.com/bubuntux/nordlynx
+  nordlynx:
+    image: ghcr.io/bubuntux/nordlynx:latest
+    container_name: nordlynx
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${time_zone}
+      - PRIVATE_KEY=${key}
+      - COUNTRY_CODE=${country}
+      - NET_LOCAL=${local_network}
+    ports:
+      - 8112:8112 # This port mapping is for deluge service
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=1  # Recomended if using ipv4 only
+    restart: unless-stopped
+
+# Deluge is a BitTorrent client that utilizes a daemon/client model.
+# https://github.com/deluge-torrent/deluge
+  deluge:
+    image: lscr.io/linuxserver/deluge:latest
+    container_name: deluge
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${time_zone}
+      - DELUGE_LOGLEVEL=error
+    volumes:
+      - ${config_dir}/deluge:/config
+      - ${data_dir}/downloads:/downloads
+    network_mode: service:nordlynx
+    depends_on:
+      - nordlynx
+    restart: unless-stopped

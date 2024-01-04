@@ -1,0 +1,19 @@
+# Kavita is a fast, feature rich, cross platform reading server.
+# https://github.com/Kareadita/Kavita
+---
+version: "2.1"
+
+services:
+  kavita:
+    image: lscr.io/linuxserver/kavita:latest
+    container_name: kavita
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${time_zone}
+    volumes:
+      - ${data_dir}/books:/data
+      - ${config_dir}/kavita:/config
+    ports:
+      - 9004:5000
+    restart: unless-stopped

@@ -1,0 +1,34 @@
+---
+version: "3.7"
+
+services:
+# TubeSync is a PVR (personal video recorder) for YouTube.
+# https://github.com/meeb/tubesync
+  tubesync:
+    image: ghcr.io/meeb/tubesync:latest
+    container_name: tubesync
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${time_zone}
+    volumes:
+      - ${config_dir}/tubesync:/config
+      - ${data_dir}/podcasts:/downloads
+    ports:
+      - 9006:4848
+    restart: unless-stopped
+
+# Web GUI for youtube-dl (using the yt-dlp fork) with playlist support.
+# https://github.com/alexta69/metube
+  metube:
+    image: ghcr.io/alexta69/metube:latest
+    container_name: metube
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${time_zone}
+    volumes:
+      - ${data_dir}/podcasts:/downloads
+    ports:
+      - 9007:8081
+    restart: unless-stopped
