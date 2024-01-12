@@ -4,6 +4,21 @@
 version: "3.4"
 
 services:
+# FlareSolverr is a proxy server to bypass Cloudflare and DDoS-GUARD protection.
+# https://github.com/FlareSolverr/FlareSolverr
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${time_zone}
+    volumes:
+      - ${config_dir}/flaresolverr:/config
+    # ports:
+    #   - 8191:8191
+    restart: unless-stopped
+
 # Prowlarr is an indexer manager/proxy built on the popular *arr .net/reactjs base stack to integrate with your various PVR apps.
 # https://github.com/Prowlarr/Prowlarr
   prowlarr:
