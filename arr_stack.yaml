@@ -9,9 +9,8 @@ services:
   flaresolverr:
     image: ghcr.io/flaresolverr/flaresolverr:latest
     container_name: flaresolverr
+    user: '1000:1000'
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=${time_zone}
     volumes:
       - ${config_dir}/flaresolverr:/config
@@ -73,9 +72,8 @@ services:
   jellyseerr:
     image: fallenbagel/jellyseerr:latest
     container_name: jellyseerr
+    user: '1000:1000'
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=${time_zone}
     volumes:
       - /etc/localtime:/etc/localtime:ro

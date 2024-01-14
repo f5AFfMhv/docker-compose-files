@@ -9,8 +9,6 @@ services:
     container_name: filebrowser
     user: '1000:1000'
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=${time_zone}
     volumes:
       - ${data_dir}:/data

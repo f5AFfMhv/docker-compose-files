@@ -7,9 +7,8 @@ services:
   gitea:
     image: gitea/gitea:latest
     container_name: gitea
+    user: '1000:1000'
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=${time_zone}
     volumes:
       - ${config_dir}/gitea:/data:Z

@@ -7,9 +7,8 @@ services:
   homarr:
     image: ghcr.io/ajnart/homarr:latest
     container_name: homarr
+    user: '1000:1000'
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=${time_zone}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock # Optional, only if you want docker integration

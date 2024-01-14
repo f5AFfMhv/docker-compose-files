@@ -1,0 +1,12 @@
+# With watchtower you can update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry.
+# https://github.com/containrrr/watchtower
+---
+version: "3"
+
+services:
+  watchtower:
+    image: containrrr/watchtower:latest
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always

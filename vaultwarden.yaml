@@ -7,9 +7,8 @@ services:
   vaultwarden:
     image: vaultwarden/server:latest
     container_name: vaultwarden
+    user: '1000:1000'
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=${time_zone}
     volumes:
       - ${config_dir}/vaultwarden:/data
