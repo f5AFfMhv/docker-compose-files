@@ -1,0 +1,20 @@
+# Static web server for DIY IoT lamp control.
+# https://github.com/f5AFfMhv/moon_lamp
+---
+version: "3"
+
+services:
+  moon-server:
+    image: f5affmhv/moon-server:latest
+    container_name: moon-server
+    environment:
+      - TZ=${time_zone}
+      - MOON_LAMP_HOST=${moon_host}
+    # ports:
+    #   - 8110:80
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network
