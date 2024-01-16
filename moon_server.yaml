@@ -10,11 +10,6 @@ services:
     environment:
       - TZ=${time_zone}
       - MOON_LAMP_HOST=${moon_host}
-    # ports:
-    #   - 8110:80
+    ports:
+      - 9015:80
     restart: unless-stopped
-
-networks:
-  default:
-    external:
-      name: caddy-network
