@@ -1,0 +1,29 @@
+# Eclipse Mosquitto is an open source (EPL/EDL licensed) message broker that implements the MQTT protocol versions 5.0, 3.1.1 and 3.1.
+# https://github.com/eclipse/mosquitto
+---
+version: "3"
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: mosquitto
+    user: '1000:1000'
+    environment:
+      - TZ=${time_zone}
+    volumes:
+      - ${config_dir}/mosquitto:/mosquitto
+    ports:
+      - 1883:1883
+    restart: unless-stopped
+
+# This exporter translates from MQTT topics to prometheus metrics.
+# https://github.com/hikhvar/mqtt2prometheus
+  mqtt2prometheus:
+    image: ghcr.io/hikhvar/mqtt2prometheus:latest
+    container_name: mqtt2prometheus
+    user: '1000:1000'
+    environment:
+      - TZ=${time_zone}
+    volumes:
+      - ${config_dir}/mqtt2prometheus/prometheus2mqtt_config.yaml:/config.yaml
+    restart: unless-stopped
