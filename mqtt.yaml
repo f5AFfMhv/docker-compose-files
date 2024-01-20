@@ -27,3 +27,8 @@ services:
     volumes:
       - ${config_dir}/mqtt2prometheus/prometheus2mqtt_config.yaml:/config.yaml
     restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network
