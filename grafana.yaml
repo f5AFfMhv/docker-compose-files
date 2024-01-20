@@ -19,10 +19,6 @@ services:
       - GF_PATHS_PLUGINS=/var/lib/grafana/plugins
       - GF_PATHS_PROVISIONING=/etc/grafana/provisioning
       - TZ=${time_zone}
-      # https://github.com/f5AFfMhv/emonesp-grafana/tree/main
-      - EMONESP_IP=${emonesp_ip}
-      - EMONESP_USER=${emonesp_user}
-      - EMONESP_PASS=${emonesp_pass}
     volumes:
       - ${config_dir}/grafana/data:/var/lib/grafana
       # - ${config_dir}/grafana/config:/etc/grafana
