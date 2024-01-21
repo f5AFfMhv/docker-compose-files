@@ -1,0 +1,31 @@
+# Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized.
+# https://hub.docker.com/r/linuxserver/syncthing
+---
+version: "2.1"
+
+services:
+  syncthing:
+    image: lscr.io/linuxserver/syncthing:latest
+    container_name: syncthing
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${time_zone}
+    volumes:
+      - ${config_dir}/syncthing:/config
+      - ${data_dir}/audiobooks:/audiobooks
+      - ${data_dir}/books:/books
+      - ${data_dir}/files:/files
+      - ${data_dir}/music:/music
+      - ${data_dir}/pictures:/pictures
+    ports:
+      # - 8384:8384
+      - 22000:22000/tcp
+      - 22000:22000/udp
+      - 21027:21027/udp
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network
