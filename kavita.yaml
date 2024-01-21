@@ -12,7 +12,7 @@ services:
       - PGID=1000
       - TZ=${time_zone}
     volumes:
-      - ${data_dir}/books:/data
+      - ${data_dir}/files/Documents/Knygos:/data
       - ${config_dir}/kavita:/config
     # ports:
     #   - 9004:5000

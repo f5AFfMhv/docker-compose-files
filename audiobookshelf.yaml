@@ -11,7 +11,6 @@ services:
     environment:
       - TZ=${time_zone}
     volumes:
-      - ${data_dir}/audiobooks:/audiobooks
       - ${data_dir}/podcasts:/podcasts
       - ${config_dir}/audiobookshelf/config:/config
       - ${config_dir}/audiobookshelf/metadata:/metadata
