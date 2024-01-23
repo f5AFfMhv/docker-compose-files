@@ -10,6 +10,11 @@
 sudo docker compose -f <SERVICE>.yaml --env-file .env up -d
 ```
 
+Some containers can keep failing because of file permission errors. In that case comment out
+`user: '1000:1000'` line. Then re-deploy container, it will initialize as root user and will create necessary files.
+
+Then you can change created file permissions to match your local user and redeploy container with `user: '1000:1000'` added back.
+
 ## Using Caddy as reverse proxy
 
 Services are configured to run behind caddy reverse proxy. If you want to run them standalone, uncomment `port` section in yaml file and remove external network section:
