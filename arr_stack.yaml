@@ -92,7 +92,7 @@ services:
     environment:
       - TZ=${time_zone}
       - PORT=9707
-      - URL="http://sonarr:8989"
+      - URL=http://sonarr:8989
       - APIKEY=${sonarr_api_key}
     # ports:
     #   - 9707:9707
@@ -108,7 +108,7 @@ services:
     environment:
       - TZ=${time_zone}
       - PORT=9708
-      - URL="http://radarr:7878"
+      - URL=http://radarr:7878
       - APIKEY=${radarr_api_key}
     # ports:
     #   - 9708:9708
