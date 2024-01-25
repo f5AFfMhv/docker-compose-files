@@ -82,6 +82,38 @@ services:
     #   - 5055:5055
     restart: unless-stopped
 
+# AIO Prometheus Exporter for Sonarr, Radarr, Lidarr, Prowlarr, Readarr, Bazarr and Sabnzbd
+# https://github.com/onedr0p/exportarr
+  sonarr-exporter:
+    image: ghcr.io/onedr0p/exportarr:v1.6.0
+    container_name: sonarr-exporter
+    user: '1000:1000'
+    command: ["sonarr"]
+    environment:
+      - TZ=${time_zone}
+      - PORT=9707
+      - URL="http://sonarr:8989"
+      - APIKEY=${sonarr_api_key}
+    # ports:
+    #   - 9707:9707
+    restart: unless-stopped
+
+# AIO Prometheus Exporter for Sonarr, Radarr, Lidarr, Prowlarr, Readarr, Bazarr and Sabnzbd
+# https://github.com/onedr0p/exportarr
+  radarr-exporter:
+    image: ghcr.io/onedr0p/exportarr:v1.6.0
+    container_name: radarr-exporter
+    user: '1000:1000'
+    command: ["radarr"]
+    environment:
+      - TZ=${time_zone}
+      - PORT=9708
+      - URL="http://radarr:7878"
+      - APIKEY=${radarr_api_key}
+    # ports:
+    #   - 9708:9708
+    restart: unless-stopped
+
 networks:
   default:
     external:
