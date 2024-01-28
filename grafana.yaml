@@ -10,7 +10,7 @@ services:
     user: '1000:1000'
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=${grafana_pass}
-      - GF_INSTALL_PLUGINS=marcusolsson-json-datasource, grafana-piechart-panel
+      - GF_INSTALL_PLUGINS=marcusolsson-json-datasource, grafana-piechart-panel, flant-statusmap-panel
       - GF_USERS_ALLOW_SIGN_UP=false
       - GF_PATHS_CONFIG=/etc/grafana/grafana.ini
       - GF_PATHS_DATA=/var/lib/grafana
