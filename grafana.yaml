@@ -26,45 +26,6 @@ services:
     #   - 3000:3000
     restart: unless-stopped
 
-# Prometheus, a Cloud Native Computing Foundation project, is a systems and service monitoring system.
-# https://github.com/prometheus/prometheus
-  prometheus:
-    command:
-      - "--config.file=/etc/prometheus/prometheus.yml"
-      - "--storage.tsdb.path=/prometheus"
-      - "--storage.tsdb.retention.time=1y" # How long historical data should be saved
-    image: prom/prometheus:latest
-    container_name: prometheus
-    user: '1000:1000'
-    environment:
-      - TZ=${time_zone}
-    volumes:
-      - ${config_dir}/prometheus/data:/prometheus
-      - ${config_dir}/prometheus/config:/etc/prometheus
-    # ports:
-    #   - 9090:9090
-    restart: unless-stopped
-
-# InfluxDB is a time series database built from the ground up to handle high write and query loads.
-# https://hub.docker.com/_/influxdb
-  influxdb:
-    image: influxdb:latest
-    container_name: influxdb
-    user: '1000:1000'
-    environment:
-      - TZ=${time_zone}
-      - DOCKER_INFLUXDB_INIT_MODE=setup
-      - DOCKER_INFLUXDB_INIT_USERNAME=${influx_user}
-      - DOCKER_INFLUXDB_INIT_PASSWORD=${influx_pass}
-      - DOCKER_INFLUXDB_INIT_ORG=home
-      - DOCKER_INFLUXDB_INIT_BUCKET=pve
-    volumes:
-      - ${config_dir}/influxdb/data:/var/lib/influxdb
-      - ${config_dir}/influxdb/config:/etc/influxdb
-    # ports:
-    #   - 8086:8086
-    restart: unless-stopped
-
 networks:
   default:
     external:
