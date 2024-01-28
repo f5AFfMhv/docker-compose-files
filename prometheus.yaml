@@ -65,6 +65,8 @@ services:
     #   - 9708:9708
     restart: unless-stopped
 
+# This is a Prometheus exporter for Pi-hole's Raspberry PI ad blocker.
+# https://github.com/eko/pihole-exporter
   pihole-exporter:
     image: ekofr/pihole-exporter:latest
     container_name: pihole-exporter
@@ -77,6 +79,18 @@ services:
       - INTERVAL=30s
     # ports:
     #   - 9617:9617
+    restart: unless-stopped
+
+# Simple Speedtest exporter for Prometheus written in Python using the official CLI from Ookla
+# https://github.com/MiguelNdeCarvalho/speedtest-exporter
+  speedtest-exporter:
+    image: miguelndecarvalho/speedtest-exporter:latest
+    container_name: speedtest-exporter
+    user: '1000:1000'
+    environment:
+      - TZ=${time_zone}
+    # ports:
+    #   - 9798:9798
     restart: unless-stopped
 
 networks:
