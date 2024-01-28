@@ -93,6 +93,22 @@ services:
     #   - 9798:9798
     restart: unless-stopped
 
+# Prometheus exporter for hardware and OS metrics exposed by *NIX kernels, written in Go with pluggable metric collectors.
+# https://github.com/prometheus/node_exporter
+  node_exporter:
+    image: quay.io/prometheus/node-exporter:latest
+    container_name: node_exporter
+    user: '1000:1000'
+    command:
+      - '--path.rootfs=/host'
+    environment:
+      - TZ=${time_zone}
+    volumes:
+      - /:/host:ro,rslave
+    # ports:
+    #   - 9100:9100
+    restart: unless-stopped
+
 networks:
   default:
     external:
