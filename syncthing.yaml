@@ -13,8 +13,6 @@ services:
       - TZ=${time_zone}
     volumes:
       - ${config_dir}/syncthing:/config
-      - ${data_dir}/audiobooks:/audiobooks
-      - ${data_dir}/books:/books
       - ${data_dir}/files:/files
       - ${data_dir}/music:/music
       - ${data_dir}/pictures:/pictures
