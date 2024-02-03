@@ -117,8 +117,10 @@ services:
     user: "1000:1000"
     environment:
       - TZ=${time_zone}
-    volumes:
-      - ${config_dir}/pve-exporter/pve.yml:/etc/prometheus/pve.yml
+      - PVE_USER=${pve_user}
+      - PVE_TOKEN_NAME=${pve_token_name}
+      - PVE_TOKEN_VALUE=${pve_token}
+      - PVE_VERIFY_SSL=false
     # ports:
     #   - 9221:9221
     restart: unless-stopped
