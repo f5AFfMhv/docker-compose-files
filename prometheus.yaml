@@ -118,8 +118,9 @@ services:
     environment:
       - TZ=${time_zone}
       - PVE_USER=${pve_user}
-      - PVE_TOKEN_NAME=${pve_token_name}
-      - PVE_TOKEN_VALUE=${pve_token}
+      - PVE_PASSWORD=${pve_pass}
+      # - PVE_TOKEN_NAME=${pve_token_name}
+      # - PVE_TOKEN_VALUE=${pve_token}
       - PVE_VERIFY_SSL=false
     # ports:
     #   - 9221:9221
