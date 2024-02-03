@@ -11,7 +11,7 @@ services:
       - "--storage.tsdb.retention.time=1y" # How long historical data should be saved
     image: prom/prometheus:latest
     container_name: prometheus
-    user: '1000:1000'
+    user: "1000:1000"
     environment:
       - TZ=${time_zone}
     volumes:
@@ -21,24 +21,24 @@ services:
     #   - 9090:9090
     restart: unless-stopped
 
-# This exporter translates from MQTT topics to prometheus metrics.
-# https://github.com/hikhvar/mqtt2prometheus
+  # This exporter translates from MQTT topics to prometheus metrics.
+  # https://github.com/hikhvar/mqtt2prometheus
   mqtt2prometheus:
     image: ghcr.io/hikhvar/mqtt2prometheus:latest
     container_name: mqtt2prometheus
-    user: '1000:1000'
+    user: "1000:1000"
     environment:
       - TZ=${time_zone}
     volumes:
       - ${config_dir}/mqtt2prometheus/prometheus2mqtt_config.yaml:/config.yaml
     restart: unless-stopped
 
-# AIO Prometheus Exporter for Sonarr, Radarr, Lidarr, Prowlarr, Readarr, Bazarr and Sabnzbd
-# https://github.com/onedr0p/exportarr
+  # AIO Prometheus Exporter for Sonarr, Radarr, Lidarr, Prowlarr, Readarr, Bazarr and Sabnzbd
+  # https://github.com/onedr0p/exportarr
   sonarr-exporter:
     image: ghcr.io/onedr0p/exportarr:v1.6.0
     container_name: sonarr-exporter
-    user: '1000:1000'
+    user: "1000:1000"
     command: ["sonarr"]
     environment:
       - TZ=${time_zone}
@@ -49,12 +49,12 @@ services:
     #   - 9707:9707
     restart: unless-stopped
 
-# AIO Prometheus Exporter for Sonarr, Radarr, Lidarr, Prowlarr, Readarr, Bazarr and Sabnzbd
-# https://github.com/onedr0p/exportarr
+  # AIO Prometheus Exporter for Sonarr, Radarr, Lidarr, Prowlarr, Readarr, Bazarr and Sabnzbd
+  # https://github.com/onedr0p/exportarr
   radarr-exporter:
     image: ghcr.io/onedr0p/exportarr:v1.6.0
     container_name: radarr-exporter
-    user: '1000:1000'
+    user: "1000:1000"
     command: ["radarr"]
     environment:
       - TZ=${time_zone}
@@ -65,12 +65,12 @@ services:
     #   - 9708:9708
     restart: unless-stopped
 
-# This is a Prometheus exporter for Pi-hole's Raspberry PI ad blocker.
-# https://github.com/eko/pihole-exporter
+  # This is a Prometheus exporter for Pi-hole's Raspberry PI ad blocker.
+  # https://github.com/eko/pihole-exporter
   pihole-exporter:
     image: ekofr/pihole-exporter:latest
     container_name: pihole-exporter
-    user: '1000:1000'
+    user: "1000:1000"
     environment:
       - TZ=${time_zone}
       - PORT=9617
@@ -81,32 +81,46 @@ services:
     #   - 9617:9617
     restart: unless-stopped
 
-# Simple Speedtest exporter for Prometheus written in Python using the official CLI from Ookla
-# https://github.com/MiguelNdeCarvalho/speedtest-exporter
+  # Simple Speedtest exporter for Prometheus written in Python using the official CLI from Ookla
+  # https://github.com/MiguelNdeCarvalho/speedtest-exporter
   speedtest-exporter:
     image: miguelndecarvalho/speedtest-exporter:latest
     container_name: speedtest-exporter
-    user: '1000:1000'
+    user: "1000:1000"
     environment:
       - TZ=${time_zone}
     # ports:
     #   - 9798:9798
     restart: unless-stopped
 
-# Prometheus exporter for hardware and OS metrics exposed by *NIX kernels, written in Go with pluggable metric collectors.
-# https://github.com/prometheus/node_exporter
+  # Prometheus exporter for hardware and OS metrics exposed by *NIX kernels, written in Go with pluggable metric collectors.
+  # https://github.com/prometheus/node_exporter
   node-exporter:
     image: quay.io/prometheus/node-exporter:latest
     container_name: node-exporter
-    user: '1000:1000'
+    user: "1000:1000"
     command:
-      - '--path.rootfs=/host'
+      - "--path.rootfs=/host"
     environment:
       - TZ=${time_zone}
     volumes:
       - /:/host:ro,rslave
     # ports:
     #   - 9100:9100
+    restart: unless-stopped
+
+  # This is an exporter that exposes information gathered from Proxmox VE node for use by the Prometheus monitoring system.
+  # https://github.com/prometheus-pve/prometheus-pve-exporter
+  pve-exporter:
+    image: prompve/prometheus-pve-exporter:latest
+    container_name: pve-exporter
+    user: "1000:1000"
+    environment:
+      - TZ=${time_zone}
+    volumes:
+      - ${config_dir}/pve-exporter/pve.yml:/etc/prometheus/pve.yml
+    # ports:
+    #   - 9221:9221
     restart: unless-stopped
 
 networks:
