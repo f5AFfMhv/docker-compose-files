@@ -52,7 +52,7 @@ kavita.home.lab {
 }
 ```
 
-3. Add records to DNS server or yout `hosts` file
+3. Add records to DNS server or your `hosts` file
 
 ```bash
 # /etc/hosts

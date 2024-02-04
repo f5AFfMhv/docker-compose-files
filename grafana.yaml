@@ -7,7 +7,7 @@ services:
   grafana:
     image: grafana/grafana:10.2.3
     container_name: grafana
-    user: '1000:1000'
+    user: "1000:1000"
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=${grafana_pass}
       - GF_INSTALL_PLUGINS=marcusolsson-json-datasource, grafana-piechart-panel, flant-statusmap-panel
