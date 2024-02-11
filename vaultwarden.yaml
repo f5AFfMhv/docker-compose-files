@@ -7,13 +7,13 @@ services:
   vaultwarden:
     image: vaultwarden/server:latest
     container_name: vaultwarden
-    user: '1000:1000'
+    user: "1000:1000"
     environment:
       - TZ=${time_zone}
     volumes:
       - ${config_dir}/vaultwarden:/data
-    # ports:
-    #   - 9014:80
+    ports:
+      - 9014:80
     restart: unless-stopped
 
 networks:
