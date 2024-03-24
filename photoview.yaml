@@ -1,0 +1,26 @@
+# Photo gallery for self-hosted personal servers.
+# https://photoview.github.io/
+---
+version: "3"
+
+services:
+  photoview:
+    image: viktorstrate/photoview:latest
+    container_name: photoview
+    environment:
+      - TZ=${time_zone}
+      - PHOTOVIEW_DATABASE_DRIVER=sqlite
+      - PHOTOVIEW_LISTEN_IP=photoview
+      - PHOTOVIEW_LISTEN_PORT=80
+      - PHOTOVIEW_MEDIA_CACHE=/app/cache
+    volumes:
+      - ${data_dir}/pictures:/photos/gphotos:ro
+      - ${data_dir}/files/Pictures:/photos/other:ro
+    # ports:
+    #   - 9016:80
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network
