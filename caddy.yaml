@@ -1,7 +1,6 @@
 # Open source web server with automatic HTTPS written in Go.
 # https://caddyserver.com/
-version: '3'
-
+---
 services:
   caddy:
     image: caddy:latest
@@ -17,7 +16,15 @@ services:
     ports:
       - 80:80
       - 443:443
-    command: ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
+    command:
+      [
+        "caddy",
+        "run",
+        "--config",
+        "/etc/caddy/Caddyfile",
+        "--adapter",
+        "caddyfile",
+      ]
     restart: unless-stopped
 
 networks:

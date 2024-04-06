@@ -1,13 +1,11 @@
 # Filebrowser provides a file managing interface within a specified directory and it can be used to upload, delete, preview, rename and edit your files.
 # https://github.com/filebrowser/filebrowser
 ---
-version: "3"
-
 services:
   filebrowser:
     image: hurlenko/filebrowser:latest
     container_name: filebrowser
-    user: '1000:1000'
+    user: "1000:1000"
     environment:
       - TZ=${time_zone}
     volumes:

@@ -1,8 +1,6 @@
 # Librespeed is a very lightweight Speedtest implemented in Javascript, using XMLHttpRequest and Web Workers.
 # https://hub.docker.com/r/linuxserver/librespeed
 ---
-version: "2.1"
-
 services:
   librespeed:
     image: lscr.io/linuxserver/librespeed:latest

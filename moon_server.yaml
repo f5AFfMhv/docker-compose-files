@@ -1,8 +1,6 @@
 # Static web server for DIY IoT lamp control.
 # https://github.com/f5AFfMhv/moon_lamp
 ---
-version: "3"
-
 services:
   moon-server:
     image: f5affmhv/moon-server:latest

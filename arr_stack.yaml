@@ -1,15 +1,13 @@
 # "*Arr" or "*Arrs" are designed to automatically grab, sort, organize, and monitor your Music, Movie, E-Book, or TV Show collections for Lidarr, Radarr, Readarr, Sonarr, and Whisparr; and to manage your indexers and keep them in sync with the aforementioned apps for Prowlarr.
 # https://wiki.servarr.com/
 ---
-version: "3.4"
-
 services:
-# FlareSolverr is a proxy server to bypass Cloudflare and DDoS-GUARD protection.
-# https://github.com/FlareSolverr/FlareSolverr
+  # FlareSolverr is a proxy server to bypass Cloudflare and DDoS-GUARD protection.
+  # https://github.com/FlareSolverr/FlareSolverr
   flaresolverr:
     image: ghcr.io/flaresolverr/flaresolverr:latest
     container_name: flaresolverr
-    user: '1000:1000'
+    user: "1000:1000"
     environment:
       - TZ=${time_zone}
     volumes:
@@ -18,8 +16,8 @@ services:
     #   - 8191:8191
     restart: unless-stopped
 
-# Prowlarr is an indexer manager/proxy built on the popular *arr .net/reactjs base stack to integrate with your various PVR apps.
-# https://github.com/Prowlarr/Prowlarr
+  # Prowlarr is an indexer manager/proxy built on the popular *arr .net/reactjs base stack to integrate with your various PVR apps.
+  # https://github.com/Prowlarr/Prowlarr
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
     container_name: prowlarr
@@ -33,8 +31,8 @@ services:
     #   - 9696:9696
     restart: unless-stopped
 
-# Sonarr is a PVR for Usenet and BitTorrent users.
-# https://github.com/Sonarr/Sonarr
+  # Sonarr is a PVR for Usenet and BitTorrent users.
+  # https://github.com/Sonarr/Sonarr
   sonarr:
     image: linuxserver/sonarr:latest
     container_name: sonarr
@@ -50,8 +48,8 @@ services:
     #   - 8989:8989
     restart: unless-stopped
 
-# Radarr is a movie collection manager for Usenet and BitTorrent users.
-# https://github.com/Radarr/Radarr
+  # Radarr is a movie collection manager for Usenet and BitTorrent users.
+  # https://github.com/Radarr/Radarr
   radarr:
     image: linuxserver/radarr:latest
     container_name: radarr
@@ -67,12 +65,12 @@ services:
     #   - 7878:7878
     restart: unless-stopped
 
-# Jellyseerr is a free and open source software application for managing requests for your media library.
-# https://github.com/Fallenbagel/jellyseerr
+  # Jellyseerr is a free and open source software application for managing requests for your media library.
+  # https://github.com/Fallenbagel/jellyseerr
   jellyseerr:
     image: fallenbagel/jellyseerr:latest
     container_name: jellyseerr
-    user: '1000:1000'
+    user: "1000:1000"
     environment:
       - TZ=${time_zone}
     volumes:

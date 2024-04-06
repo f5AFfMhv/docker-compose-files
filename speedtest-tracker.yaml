@@ -1,8 +1,6 @@
 # This program runs a speedtest check every hour and graphs the results.
 # https://github.com/henrywhitaker3/Speedtest-Tracker
 ---
-version: "3"
-
 services:
   speedtest-tracker:
     image: henrywhitaker3/speedtest-tracker:latest

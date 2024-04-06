@@ -1,8 +1,6 @@
 # Prometheus, a Cloud Native Computing Foundation project, is a systems and service monitoring system.
 # https://github.com/prometheus/prometheus
 ---
-version: "3"
-
 services:
   prometheus:
     command:

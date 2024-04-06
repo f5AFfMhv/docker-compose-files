@@ -1,13 +1,11 @@
 # Audiobookshelf is a self-hosted audiobook and podcast server.
 # https://github.com/advplyr/audiobookshelf
 ---
-version: "3.7"
-
 services:
   audiobookshelf:
     image: ghcr.io/advplyr/audiobookshelf:latest
     container_name: audiobookshelf
-    user: '1000:1000'
+    user: "1000:1000"
     environment:
       - TZ=${time_zone}
     volumes:

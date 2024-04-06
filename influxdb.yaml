@@ -1,13 +1,11 @@
 # InfluxDB is a time series database built from the ground up to handle high write and query loads.
 # https://hub.docker.com/_/influxdb
 ---
-version: "3"
-
 services:
   influxdb:
     image: influxdb:latest
     container_name: influxdb
-    user: '1000:1000'
+    user: "1000:1000"
     environment:
       - TZ=${time_zone}
       - DOCKER_INFLUXDB_INIT_MODE=setup

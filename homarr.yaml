@@ -1,13 +1,11 @@
 # Homarr - a sleek, modern dashboard that puts all of your apps and services at your fingertips.
 # https://github.com/ajnart/homarr
 ---
-version: "3"
-
 services:
   homarr:
     image: ghcr.io/ajnart/homarr:latest
     container_name: homarr
-    user: '1000:1000'
+    user: "1000:1000"
     environment:
       - TZ=${time_zone}
     volumes:

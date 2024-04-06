@@ -1,8 +1,6 @@
 # Alternative implementation of the Bitwarden server API services at your fingertips.
 # https://github.com/dani-garcia/vaultwarden
 ---
-version: "3"
-
 services:
   vaultwarden:
     image: vaultwarden/server:latest

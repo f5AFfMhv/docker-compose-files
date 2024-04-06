@@ -1,13 +1,11 @@
-# Eclipse Mosquitto is an open source (EPL/EDL licensed) message broker that implements the MQTT protocol versions 5.0, 3.1.1 and 3.1.
+# Eclipse Mosquitto is an open source (EPL/EDL licensed) message broker that implements the MQTT protocol
 # https://github.com/eclipse/mosquitto
 ---
-version: "3"
-
 services:
   mosquitto:
     image: eclipse-mosquitto:latest
     container_name: mosquitto
-    user: '1000:1000'
+    user: "1000:1000"
     environment:
       - TZ=${time_zone}
     volumes:

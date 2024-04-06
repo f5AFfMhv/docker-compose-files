@@ -1,8 +1,6 @@
 # Gitea is a lightweight DevOps platform.
 # https://github.com/go-gitea/gitea
 ---
-version: "3"
-
 services:
   gitea:
     image: gitea/gitea:latest

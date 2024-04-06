@@ -1,8 +1,6 @@
 # Freshrss is a free, self-hostable aggregator for rss feeds.
 # https://hub.docker.com/r/linuxserver/freshrss
 ---
-version: "2.1"
-
 services:
   freshrss:
     image: lscr.io/linuxserver/freshrss:latest

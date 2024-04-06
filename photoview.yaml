@@ -1,8 +1,6 @@
 # Photo gallery for self-hosted personal servers.
 # https://photoview.github.io/
 ---
-version: "3"
-
 services:
   photoview:
     image: viktorstrate/photoview:latest

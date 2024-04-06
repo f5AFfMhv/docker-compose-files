@@ -1,8 +1,6 @@
 # Agent for portainer container management tool.
 # https://docs.portainer.io/admin/environments/add/docker/agent
 ---
-version: "3"
-
 services:
   portainer-agent:
     image: portainer/agent:latest
