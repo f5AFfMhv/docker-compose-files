@@ -1,0 +1,21 @@
+# A modern, fully static, fast, secure fully proxied, highly customizable application dashboard
+# https://github.com/gethomepage/homepage
+---
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    user: "1000:1000"
+    environment:
+      - TZ=${time_zone}
+    volumes:
+      - ${config_dir}/homepage:/app/config
+      # - /var/run/docker.sock:/var/run/docker.sock:ro
+    # ports:
+    #   - 3000:3000
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network
