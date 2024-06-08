@@ -7,8 +7,8 @@ services:
     image: cloudflare/cloudflared:latest
     container_name: cloudflared
     environment:
-      - token=${cloudflare_token}
-    command: tunnel --no-autoupdate run --token $token
+      - TUNNEL_TOKEN=${cloudflare_token}
+    command: tunnel --no-autoupdate run
     restart: unless-stopped
 
 networks:
