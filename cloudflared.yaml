@@ -1,0 +1,17 @@
+# A tunneling daemon that proxies traffic from the Cloudflare network to your origins.
+# https://github.com/cloudflare/cloudflared
+
+---
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    environment:
+      - token=${cloudflare_token}
+    command: tunnel --no-autoupdate run --token $token
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network
