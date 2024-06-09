@@ -16,6 +16,7 @@ services:
       - GF_PATHS_LOGS=/var/log/grafana
       - GF_PATHS_PLUGINS=/var/lib/grafana/plugins
       - GF_PATHS_PROVISIONING=/etc/grafana/provisioning
+      - GF_SERVER_ROOT_URL=https://grafana.home.lab/
       - TZ=${time_zone}
     volumes:
       - ${config_dir}/grafana/data:/var/lib/grafana
