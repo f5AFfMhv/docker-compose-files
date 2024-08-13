@@ -7,6 +7,8 @@ services:
     container_name: photoview
     environment:
       - TZ=${time_zone}
+      - PUID=1000
+      - PGID=1000
       - PHOTOVIEW_DATABASE_DRIVER=sqlite
       - PHOTOVIEW_LISTEN_IP=photoview
       - PHOTOVIEW_LISTEN_PORT=80
