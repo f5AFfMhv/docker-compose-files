@@ -4,6 +4,7 @@
 services:
   photoview:
     image: viktorstrate/photoview:master
+    user: "1000:1000"
     container_name: photoview
     environment:
       - TZ=${time_zone}
