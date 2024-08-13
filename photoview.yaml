@@ -3,7 +3,7 @@
 ---
 services:
   photoview:
-    image: viktorstrate/photoview:latest
+    image: viktorstrate/photoview:master
     container_name: photoview
     environment:
       - TZ=${time_zone}
