@@ -15,6 +15,8 @@ services:
     volumes:
       - ${data_dir}/pictures:/photos/gphotos:ro
       - ${data_dir}/files/Pictures:/photos/other:ro
+      - ${config_dir}/photoview/db:/home/photoview
+      - ${config_dir}/photoview/cache:/app/cache
     # ports:
     #   - 9016:80
     restart: unless-stopped
