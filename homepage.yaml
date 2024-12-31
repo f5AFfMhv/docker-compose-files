@@ -10,6 +10,7 @@ services:
       - TZ=${time_zone}
     volumes:
       - ${config_dir}/homepage:/app/config
+      - ${data_dir}:/data
       # - /var/run/docker.sock:/var/run/docker.sock:ro
     # ports:
     #   - 3000:3000
