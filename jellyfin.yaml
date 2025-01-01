@@ -9,10 +9,14 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${time_zone}
+    group_add:
+      - "993" # Change this to match your "render" host group id
     volumes:
       - ${data_dir}/tvshows:/data/tvshows
       - ${data_dir}/movies:/data/movies
       - ${config_dir}/jellyfin:/config
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
     ports:
       - 8096:8096
     restart: unless-stopped
