@@ -14,6 +14,9 @@ services:
       - ${data_dir}/files:/files
       - ${data_dir}/music:/music
       - ${data_dir}/pictures:/pictures
+      - ${data_dir}/podcasts:/podcasts
+      - ${data_dir}/movies:/movies
+      - ${data_dir}/tvshows:/tvshows
     ports:
       # - 8384:8384
       - 22000:22000/tcp
