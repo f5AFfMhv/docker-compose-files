@@ -8,6 +8,7 @@ services:
     user: "1000:1000"
     environment:
       - TZ=${time_zone}
+      - HOMEPAGE_ALLOWED_HOSTS="*"
     volumes:
       - ${config_dir}/homepage:/app/config
       - ${data_dir}:/data
