@@ -16,21 +16,6 @@ services:
     #   - 9006:4848
     restart: unless-stopped
 
-  # Web GUI for youtube-dl (using the yt-dlp fork) with playlist support.
-  # https://github.com/alexta69/metube
-  metube:
-    image: ghcr.io/alexta69/metube:latest
-    container_name: metube
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=${time_zone}
-    volumes:
-      - ${data_dir}/podcasts:/downloads
-    # ports:
-    #   - 9007:8081
-    restart: unless-stopped
-
 networks:
   default:
     external:
