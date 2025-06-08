@@ -1,0 +1,51 @@
+# A safe home for all your data. Access & share your files, calendars, contacts, mail & more from any device, on your terms.
+# https://github.com/docker-library/docs/blob/master/nextcloud/README.md
+---
+services:
+  nextcloud:
+    image: nextcloud:latest
+    container_name: nextcloud
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${time_zone}
+      - NEXTCLOUD_TRUSTED_DOMAINS=${nc_domains}
+      - MYSQL_PASSWORD=${nc_db_pass}
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_HOST=mariadb
+      - REDIS_HOST=redis
+    volumes:
+      - ${config_dir}/nextcloud/config:/var/www/html/config
+      - ${config_dir}/nextcloud/apps:/var/www/html/custom_apps
+      - ${config_dir}/nextcloud/themes:/var/www/html/themes
+      - ${data_dir}/nextcloud:/var/www/html/data
+    # ports:
+    #   - 9017:80
+    depends_on:
+      - mariadb
+      - redis
+    restart: unless-stopped
+
+  mariadb:
+    image: mariadb:10.6
+    container_name: nextcloud-db
+    command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
+    environment:
+      - MYSQL_ROOT_PASSWORD=${nc_db_pass}
+      - MYSQL_PASSWORD=${nc_db_pass}
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+    volumes:
+      - ${config_dir}/nextcloud-db:/var/lib/mysql
+    restart: unless-stopped
+
+  redis:
+    image: redis:alpine
+    container_name: nextcloud-redis
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network
