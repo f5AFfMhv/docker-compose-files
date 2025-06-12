@@ -5,10 +5,7 @@ services:
   nextcloud:
     image: nextcloud:latest
     container_name: nextcloud
-    user: "1000:1000"
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=${time_zone}
       - NEXTCLOUD_TRUSTED_DOMAINS=${nc_domains}
       - MYSQL_PASSWORD=${nc_db_pass}
