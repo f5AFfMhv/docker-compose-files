@@ -28,7 +28,7 @@ services:
   mariadb:
     image: mariadb:10.6
     container_name: nextcloud-db
-    command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
+    command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
     environment:
       - MYSQL_ROOT_PASSWORD=${nc_db_pass}
       - MYSQL_PASSWORD=${nc_db_pass}
