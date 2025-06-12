@@ -26,7 +26,7 @@ services:
     restart: unless-stopped
 
   mariadb:
-    image: mariadb:10.6
+    image: mariadb:11.3.2
     container_name: nextcloud-db
     command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
     environment:
