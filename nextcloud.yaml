@@ -7,6 +7,7 @@ services:
     container_name: nextcloud
     environment:
       - TZ=${time_zone}
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/www/html/data/bin
       - NEXTCLOUD_TRUSTED_DOMAINS=${nc_domains}
       - MYSQL_PASSWORD=${nc_db_pass}
       - MYSQL_DATABASE=nextcloud
