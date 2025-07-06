@@ -21,15 +21,15 @@ services:
 
   # This exporter translates from MQTT topics to prometheus metrics.
   # https://github.com/hikhvar/mqtt2prometheus
-  # mqtt2prometheus:
-  #   image: ghcr.io/hikhvar/mqtt2prometheus:latest
-  #   container_name: mqtt2prometheus
-  #   user: "1000:1000"
-  #   environment:
-  #     - TZ=${time_zone}
-  #   volumes:
-  #     - ${config_dir}/mqtt2prometheus/prometheus2mqtt_config.yaml:/config.yaml
-  #   restart: unless-stopped
+  mqtt2prometheus:
+    image: ghcr.io/hikhvar/mqtt2prometheus:latest
+    container_name: mqtt2prometheus
+    user: "1000:1000"
+    environment:
+      - TZ=${time_zone}
+    volumes:
+      - ${config_dir}/mqtt2prometheus/prometheus2mqtt_config.yaml:/config.yaml
+    restart: unless-stopped
 
   # AIO Prometheus Exporter for Sonarr, Radarr, Lidarr, Prowlarr, Readarr, Bazarr and Sabnzbd
   # https://github.com/onedr0p/exportarr
