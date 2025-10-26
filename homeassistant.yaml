@@ -1,0 +1,25 @@
+# Open source home automation that puts local control and privacy first.
+# https://www.home-assistant.io/
+---
+services:
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:latest
+    container_name: homeassistant
+    user: "1000:1000"
+    environment:
+      - TZ=${time_zone}
+    volumes:
+      - ${config_dir}/homeassistant:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+    # ports:
+    #   - 8123:8123
+    restart: unless-stopped
+    # NOTE: for bluetooth and other device integration container needs to run in privileged mode and utilize host network directly.
+    privileged: true
+    network_mode: host
+
+# networks:
+#   default:
+#     external:
+#       name: caddy-network
