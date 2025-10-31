@@ -8,6 +8,8 @@ services:
     user: "1000:1000"
     environment:
       - TZ=${time_zone}
+      - HOME=/config
+      - PYTHONPATH=/config/.local/lib/python3.13:$PYTHONPATH
     volumes:
       - ${config_dir}/homeassistant:/config
       - /etc/localtime:/etc/localtime:ro
