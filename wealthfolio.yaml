@@ -1,0 +1,22 @@
+# Wealthfolio App is a Beautiful and Boring Investment Tracker, with Local Data Storage.
+# https://github.com/afadil/wealthfolio
+---
+services:
+  wealthfolio:
+    image: afadil/wealthfolio:latest
+    container_name: wealthfolio
+    environment:
+      - TZ=${time_zone}
+      - WF_LISTEN_ADDR=0.0.0.0:8088
+      - WF_DB_PATH=/data/wealthfolio.db
+      - WF_SECRET_KEY=${secret_key}
+    volumes:
+      - ${config_dir}/wealthfolio:/data
+    # ports:
+    #   - 8088:8088
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network
