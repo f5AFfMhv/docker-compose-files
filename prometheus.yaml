@@ -31,65 +31,65 @@ services:
       - ${config_dir}/mqtt2prometheus/prometheus2mqtt_config.yaml:/config.yaml
     restart: unless-stopped
 
-  # AIO Prometheus Exporter for Sonarr, Radarr, Lidarr, Prowlarr, Readarr, Bazarr and Sabnzbd
-  # https://github.com/onedr0p/exportarr
-  sonarr-exporter:
-    image: ghcr.io/onedr0p/exportarr:v1.6.0
-    container_name: sonarr-exporter
-    user: "1000:1000"
-    command: ["sonarr"]
-    environment:
-      - TZ=${time_zone}
-      - PORT=9707
-      - URL=http://sonarr:8989
-      - APIKEY=${sonarr_api_key}
-    # ports:
-    #   - 9707:9707
-    restart: unless-stopped
+  # # AIO Prometheus Exporter for Sonarr, Radarr, Lidarr, Prowlarr, Readarr, Bazarr and Sabnzbd
+  # # https://github.com/onedr0p/exportarr
+  # sonarr-exporter:
+  #   image: ghcr.io/onedr0p/exportarr:v1.6.0
+  #   container_name: sonarr-exporter
+  #   user: "1000:1000"
+  #   command: ["sonarr"]
+  #   environment:
+  #     - TZ=${time_zone}
+  #     - PORT=9707
+  #     - URL=http://sonarr:8989
+  #     - APIKEY=${sonarr_api_key}
+  #   # ports:
+  #   #   - 9707:9707
+  #   restart: unless-stopped
 
-  # AIO Prometheus Exporter for Sonarr, Radarr, Lidarr, Prowlarr, Readarr, Bazarr and Sabnzbd
-  # https://github.com/onedr0p/exportarr
-  radarr-exporter:
-    image: ghcr.io/onedr0p/exportarr:v1.6.0
-    container_name: radarr-exporter
-    user: "1000:1000"
-    command: ["radarr"]
-    environment:
-      - TZ=${time_zone}
-      - PORT=9708
-      - URL=http://radarr:7878
-      - APIKEY=${radarr_api_key}
-    # ports:
-    #   - 9708:9708
-    restart: unless-stopped
+  # # AIO Prometheus Exporter for Sonarr, Radarr, Lidarr, Prowlarr, Readarr, Bazarr and Sabnzbd
+  # # https://github.com/onedr0p/exportarr
+  # radarr-exporter:
+  #   image: ghcr.io/onedr0p/exportarr:v1.6.0
+  #   container_name: radarr-exporter
+  #   user: "1000:1000"
+  #   command: ["radarr"]
+  #   environment:
+  #     - TZ=${time_zone}
+  #     - PORT=9708
+  #     - URL=http://radarr:7878
+  #     - APIKEY=${radarr_api_key}
+  #   # ports:
+  #   #   - 9708:9708
+  #   restart: unless-stopped
 
-  # This is a Prometheus exporter for Pi-hole's Raspberry PI ad blocker.
-  # https://github.com/eko/pihole-exporter
-  pihole-exporter:
-    image: ekofr/pihole-exporter:latest
-    container_name: pihole-exporter
-    user: "1000:1000"
-    environment:
-      - TZ=${time_zone}
-      - PORT=9617
-      - PIHOLE_HOSTNAME=${pihole_host}
-      - PIHOLE_PASSWORD=${pihole_pass}
-      - INTERVAL=30s
-    # ports:
-    #   - 9617:9617
-    restart: unless-stopped
+  # # This is a Prometheus exporter for Pi-hole's Raspberry PI ad blocker.
+  # # https://github.com/eko/pihole-exporter
+  # pihole-exporter:
+  #   image: ekofr/pihole-exporter:latest
+  #   container_name: pihole-exporter
+  #   user: "1000:1000"
+  #   environment:
+  #     - TZ=${time_zone}
+  #     - PORT=9617
+  #     - PIHOLE_HOSTNAME=${pihole_host}
+  #     - PIHOLE_PASSWORD=${pihole_pass}
+  #     - INTERVAL=30s
+  #   # ports:
+  #   #   - 9617:9617
+  #   restart: unless-stopped
 
-  # Simple Speedtest exporter for Prometheus written in Python using the official CLI from Ookla
-  # https://github.com/MiguelNdeCarvalho/speedtest-exporter
-  speedtest-exporter:
-    image: miguelndecarvalho/speedtest-exporter:latest
-    container_name: speedtest-exporter
-    user: "1000:1000"
-    environment:
-      - TZ=${time_zone}
-    # ports:
-    #   - 9798:9798
-    restart: unless-stopped
+  # # Simple Speedtest exporter for Prometheus written in Python using the official CLI from Ookla
+  # # https://github.com/MiguelNdeCarvalho/speedtest-exporter
+  # speedtest-exporter:
+  #   image: miguelndecarvalho/speedtest-exporter:latest
+  #   container_name: speedtest-exporter
+  #   user: "1000:1000"
+  #   environment:
+  #     - TZ=${time_zone}
+  #   # ports:
+  #   #   - 9798:9798
+  #   restart: unless-stopped
 
   # Prometheus exporter for hardware and OS metrics exposed by *NIX kernels, written in Go with pluggable metric collectors.
   # https://github.com/prometheus/node_exporter
@@ -106,7 +106,6 @@ services:
     # ports:
     #   - 9100:9100
     restart: unless-stopped
-
   # This is an exporter that exposes information gathered from Proxmox VE node for use by the Prometheus monitoring system.
   # https://github.com/prometheus-pve/prometheus-pve-exporter
   # pve-exporter:
