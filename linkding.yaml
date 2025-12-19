@@ -1,0 +1,23 @@
+# linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up using Docker.
+# https://github.com/sissbruecker/linkding
+---
+services:
+  linkding:
+    image: sissbruecker/linkding:latest
+    container_name: linkding
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${time_zone}
+      - LD_SUPERUSER_NAME=mj
+      - LD_SUPERUSER_PASSWORD=ubuntu
+    volumes:
+      - ${data_dir}/linkding:/etc/linkding/data
+    # ports:
+    #   - 9090:9090
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network
