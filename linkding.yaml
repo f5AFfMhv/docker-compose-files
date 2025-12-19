@@ -9,8 +9,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${time_zone}
-      - LD_SUPERUSER_NAME=mj
-      - LD_SUPERUSER_PASSWORD=ubuntu
+      - LD_SUPERUSER_NAME=${super_user}
+      - LD_SUPERUSER_PASSWORD=${super_user_pass}
     volumes:
       - ${data_dir}/linkding:/etc/linkding/data
     # ports:
