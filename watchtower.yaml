@@ -1,9 +1,11 @@
 # With watchtower you can update the running
 # https://github.com/containrrr/watchtower
+# https://github.com/nicholas-fedor/watchtower
 ---
 services:
   watchtower:
-    image: containrrr/watchtower:latest
+    # image: containrrr/watchtower:latest # no longer maintained
+    image: nickfedor/watchtower:latest # fork of original project
     container_name: watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
