@@ -10,6 +10,7 @@ services:
       - WF_LISTEN_ADDR=0.0.0.0:8088
       - WF_DB_PATH=/data/wealthfolio.db
       - WF_SECRET_KEY=${secret_key}
+      - WF_AUTH_REQUIRED=false
     volumes:
       - ${config_dir}/wealthfolio:/data
     # ports:
