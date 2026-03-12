@@ -23,7 +23,7 @@ services:
   # Deluge is a BitTorrent client that utilizes a daemon/client model.
   # https://github.com/deluge-torrent/deluge
   deluge:
-    image: lscr.io/linuxserver/deluge:latest
+    image: lscr.io/linuxserver/deluge:2.2.0-r1-ls364 # as of 2026-03-12 latest version breaks plugins
     container_name: deluge
     environment:
       - PUID=1000
