@@ -1,0 +1,28 @@
+# Self-hosted command center for Bambu Lab
+# https://bambuddy.cool/
+---
+services:
+  bambuddy:
+    image: ghcr.io/maziggy/bambuddy:latest
+    container_name: bambuddy
+    user: "1000:1000"
+    environment:
+      - TZ=${time_zone}
+    volumes:
+      - ${data_dir}/bambuddy/appdata:/app/data
+      - ${data_dir}/bambuddy/logs:/app/logs
+    # ports:
+    #   - 8000:8000
+    restart: unless-stopped
+
+  orca-slicer-api:
+    image: ghcr.io/maziggy/orca-slicer-api:latest
+    container_name: orca-slicer-api
+    # ports:
+    #   - 3000:3000
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network
