@@ -15,11 +15,27 @@ services:
     #   - 8000:8000
     restart: unless-stopped
 
-  orca-slicer-api:
-    image: ghcr.io/maziggy/orca-slicer-api:latest
-    container_name: orca-slicer-api
+  # orca-slicer-api:
+  #   image: ghcr.io/maziggy/orca-slicer-api:latest
+  #   container_name: orca-slicer-api
+  #   # ports:
+  #   #   - 3000:3000
+  #   restart: unless-stopped
+
+  bambu-studio-api:
+    image: ghcr.io/maziggy/bambu-studio-api:latest
+    container_name: bambu-studio-api
+    user: "1000:1000"
     # ports:
-    #   - 3000:3000
+    #   - 3001:3000
+    environment:
+      - NODE_ENV=production
+      - PORT="3000"
+      - TZ=${time_zone}
+    volumes:
+      - ${data_dir}/bambuddy/bambu-slicer:/app/data
+    profiles:
+      - bambu
     restart: unless-stopped
 
 networks:
