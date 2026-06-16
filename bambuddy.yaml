@@ -32,8 +32,6 @@ services:
       - NODE_ENV=production
       - PORT="3000"
       - TZ=${time_zone}
-    volumes:
-      - ${config_dir}/bambuddy/bambu-slicer:/app/data
     restart: unless-stopped
 
 networks:
