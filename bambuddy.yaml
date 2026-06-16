@@ -9,8 +9,8 @@ services:
     environment:
       - TZ=${time_zone}
     volumes:
-      - ${data_dir}/bambuddy/appdata:/app/data
-      - ${data_dir}/bambuddy/logs:/app/logs
+      - ${config_dir}/bambuddy/appdata:/app/data
+      - ${config_dir}/bambuddy/logs:/app/logs
     # ports:
     #   - 8000:8000
     restart: unless-stopped
@@ -33,7 +33,7 @@ services:
       - PORT="3000"
       - TZ=${time_zone}
     volumes:
-      - ${data_dir}/bambuddy/bambu-slicer:/app/data
+      - ${config_dir}/bambuddy/bambu-slicer:/app/data
     profiles:
       - bambu
     restart: unless-stopped
