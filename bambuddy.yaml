@@ -34,8 +34,6 @@ services:
       - TZ=${time_zone}
     volumes:
       - ${config_dir}/bambuddy/bambu-slicer:/app/data
-    profiles:
-      - bambu
     restart: unless-stopped
 
 networks:
