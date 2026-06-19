@@ -1,0 +1,19 @@
+# My personal AI generated documentation using lathe.
+# https://github.com/f5AFfMhv/my-lathe-tutorials
+---
+services:
+  my-lathe:
+    image: f5affmhv/my-lathe:latest
+    container_name: my-lathe
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${time_zone}
+    # ports:
+    #   - 4243:4243
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network
