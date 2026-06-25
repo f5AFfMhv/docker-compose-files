@@ -12,7 +12,7 @@ services:
       - LD_SUPERUSER_NAME=${super_user}
       - LD_SUPERUSER_PASSWORD=${super_user_pass}
     volumes:
-      - ${data_dir}/linkding:/etc/linkding/data
+      - ${config_dir}/linkding:/etc/linkding/data
     # ports:
     #   - 9090:9090
     restart: unless-stopped
