@@ -47,7 +47,6 @@ services:
   code:
     image: collabora/code
     container_name: collabora
-    user: 1000:1000
     environment:
       - TZ=${time_zone}
       - "extra_params=--o:ssl.enable=false"
