@@ -44,23 +44,6 @@ services:
     container_name: nextcloud-redis
     restart: unless-stopped
 
-  code:
-    image: collabora/code
-    container_name: collabora
-    environment:
-      - TZ=${time_zone}
-      - "aliasgroup1=https://.*:443"
-    # ports:
-    #   - 9980:9980
-    cap_drop:
-      - ALL
-    cap_add:
-      - SYS_CHROOT
-      - SYS_ADMIN
-      - FOWNER
-      - CHOWN
-    restart: unless-stopped
-
 networks:
   default:
     external:
