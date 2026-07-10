@@ -11,6 +11,7 @@ services:
       - TZ=${time_zone}
     volumes:
       - ${data_dir}/podcasts:/downloads
+      - ${data_dir}/music/Playlist:/music
     # ports:
     #   - 9007:8081
     restart: unless-stopped
