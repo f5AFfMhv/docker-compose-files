@@ -50,7 +50,6 @@ services:
     environment:
       - TZ=${time_zone}
       - "aliasgroup1=https://.*:443"
-      - DONT_GEN_SSL_CERT=true
     # ports:
     #   - 9980:9980
     cap_drop:
