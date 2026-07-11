@@ -15,6 +15,7 @@ services:
       - ${data_dir}/tvshows:/data/tvshows
       - ${data_dir}/movies:/data/movies
       - ${data_dir}/podcasts/video/youtube:/data/youtube
+      - ${data_dir}/music:/data/music
       - ${config_dir}/jellyfin:/config
     devices:
       - /dev/dri/renderD128:/dev/dri/renderD128
