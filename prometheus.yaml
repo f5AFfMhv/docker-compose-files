@@ -30,7 +30,6 @@ services:
     volumes:
       - ${config_dir}/mqtt2prometheus/prometheus2mqtt_config.yaml:/config.yaml
     restart: unless-stopped
-
   # # AIO Prometheus Exporter for Sonarr, Radarr, Lidarr, Prowlarr, Readarr, Bazarr and Sabnzbd
   # # https://github.com/onedr0p/exportarr
   # sonarr-exporter:
@@ -93,19 +92,20 @@ services:
 
   # Prometheus exporter for hardware and OS metrics exposed by *NIX kernels, written in Go with pluggable metric collectors.
   # https://github.com/prometheus/node_exporter
-  node-exporter:
-    image: quay.io/prometheus/node-exporter:latest
-    container_name: node-exporter
-    user: "1000:1000"
-    command:
-      - "--path.rootfs=/host"
-    environment:
-      - TZ=${time_zone}
-    volumes:
-      - /:/host:ro,rslave
-    # ports:
-    #   - 9100:9100
-    restart: unless-stopped
+  # node-exporter:
+  #   image: quay.io/prometheus/node-exporter:latest
+  #   container_name: node-exporter
+  #   user: "1000:1000"
+  #   command:
+  #     - "--path.rootfs=/host"
+  #   environment:
+  #     - TZ=${time_zone}
+  #   volumes:
+  #     - /:/host:ro,rslave
+  #   # ports:
+  #   #   - 9100:9100
+  #   restart: unless-stopped
+
   # This is an exporter that exposes information gathered from Proxmox VE node for use by the Prometheus monitoring system.
   # https://github.com/prometheus-pve/prometheus-pve-exporter
   # pve-exporter:
