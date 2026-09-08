@@ -14,13 +14,13 @@ services:
     # ports:
     #   - 8000:8000
     restart: unless-stopped
+  # orca-slicer-api:
+  #   image: ghcr.io/maziggy/orca-slicer-api:bambuddy-0.2.4.7
+  #   container_name: orca-slicer-api
+  #   # ports:
+  #   #   - 3000:3000
+  #   restart: unless-stopped
 
-  orca-slicer-api:
-    image: ghcr.io/maziggy/orca-slicer-api:bambuddy-0.2.4.7
-    container_name: orca-slicer-api
-    # ports:
-    #   - 3000:3000
-    restart: unless-stopped
   # bambu-studio-api:
   #   image: ghcr.io/maziggy/bambu-studio-api:latest
   #   container_name: bambu-studio-api
