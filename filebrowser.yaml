@@ -16,10 +16,13 @@
 #     # ports:
 #     #   - 9003:8080
 #     restart: unless-stopped
+
+# Web-based file manager with source configuration, modern authentication, office support, and lightning-fast search.
+# https://filebrowserquantum.com/en/
 ---
 services:
   filebrowser:
-    image: gtstef/filebrowser:beta
+    image: gtstef/filebrowser:stable
     container_name: filebrowser
     user: "1000:1000"
     environment:
