@@ -1,19 +1,25 @@
-# This program runs a speedtest check every hour and graphs the results.
-# https://github.com/henrywhitaker3/Speedtest-Tracker
+# Application that monitors the performance and uptime of your internet connection.
+# https://github.com/alexjustesen/speedtest-tracker
 ---
 services:
   speedtest-tracker:
-    image: henrywhitaker3/speedtest-tracker:latest
+    image: lscr.io/linuxserver/speedtest-tracker:latest
     container_name: speedtest-tracker
     environment:
-      - PUID=1000
+      - PUID= 1000
       - PGID=1000
-      - TZ=${time_zone}
-      - OOKLA_EULA_GDPR=true
+      - DISPLAY_TIMEZONE=${time_zone}
+      - APP_KEY=${st_app_key}
+      - APP_URL=${st_app_url}
+      - DB_CONNECTION=sqlite
+      - SPEEDTEST_SCHEDULE=0 * * * *
+      - ADMIN_EMAIL=${st_admin_email}
+      - ADMIN_PASSWORD=${st_admin_password}
     volumes:
       - ${config_dir}/speedtest-tracker:/config
     # ports:
-    #   - 9005:80
+    #   - 6080:80
+    #   - 5443:443
     restart: unless-stopped
 
 networks:
