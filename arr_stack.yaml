@@ -81,21 +81,22 @@ services:
     # ports:
     #   - 8686:8686
     restart: unless-stopped
-
+  # JELLYSEERR IS DEPRECATED - https://docs.seerr.dev/migration-guide/
+  #
   # Jellyseerr is a free and open source software application for managing requests for your media library.
   # https://github.com/Fallenbagel/jellyseerr
-  jellyseerr:
-    image: fallenbagel/jellyseerr:latest
-    container_name: jellyseerr
-    user: "1000:1000"
-    environment:
-      - TZ=${time_zone}
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - ${config_dir}/jellyseerr:/app/config
-    # ports:
-    #   - 5055:5055
-    restart: unless-stopped
+  # jellyseerr:
+  #   image: fallenbagel/jellyseerr:latest
+  #   container_name: jellyseerr
+  #   user: "1000:1000"
+  #   environment:
+  #     - TZ=${time_zone}
+  #   volumes:
+  #     - /etc/localtime:/etc/localtime:ro
+  #     - ${config_dir}/jellyseerr:/app/config
+  #   # ports:
+  #   #   - 5055:5055
+  #   restart: unless-stopped
 
 networks:
   default:
