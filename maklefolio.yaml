@@ -1,0 +1,19 @@
+# Maklefolio is custom vibe coded portfolio tracking application.
+# Not published.
+---
+services:
+  maklefolio:
+    image: localhost/maklefolio:latest
+    container_name: maklefolio
+    environment:
+      - TZ=${time_zone}
+    volumes:
+      - ${config_dir}/maklefolio:/app/data
+    # ports:
+    #   - 5000:5000
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network
