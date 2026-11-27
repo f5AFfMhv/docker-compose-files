@@ -1,0 +1,17 @@
+# Homelab is custom vibe coded overview of home lab.
+# Not published.
+---
+services:
+  homelab:
+    image: localhost/homelab-docs:latest
+    container_name: homelab
+    environment:
+      - TZ=${time_zone}
+    # ports:
+    #   - 80:80
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: caddy-network
